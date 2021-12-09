@@ -1,0 +1,73 @@
+{
+  "name": "react-simple-form-validator",
+  "version": "0.1.0",
+  "description": "Simple React JS library to validate form fields",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
+  "files": [
+    "/lib"
+  ],
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perscrew/react-simple-form-validator.git"
+  },
+  "keywords": [
+    "react",
+    "javascript",
+    "typescript"
+  ],
+  "author": "Thibaud Dervily",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/perscrew/react-simple-form-validator/issues"
+  },
+  "homepage": "https://github.com/perscrew/react-simple-form-validator#readme",
+  "peerDependencies": {
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1",
+    "dayjs": ">=1.10.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/plugin-syntax-optional-chaining": "^7.8.3",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.16.0",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.9.6",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "babel-jest": "^27.0.6",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^1.1.6",
+    "dayjs": "^1.10.7",
+    "enzyme": "^3.11.0",
+    "jest": "^27.0.6",
+    "jsdom": "^9.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.0",
+    "react-test-renderer": "^17.0.2",
+    "typescript": "^4.4.3"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

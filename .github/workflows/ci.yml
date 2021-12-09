@@ -1,0 +1,49 @@
+name: Node.js CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+      
+      - run: npm ci
+
+      - run: npm test
+
+      - name: Conventional Changelog Action
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.BUMP_VERSION_TOKEN }}
+
+      - name : Publish library to npm registry
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+
+      - name: Build React JS demo app
+        run: cd examples/react-js && npm i && npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: gh-pages
+          folder: build
+
+    
+      
