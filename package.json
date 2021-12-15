@@ -1,6 +1,6 @@
 {
   "name": "react-simple-form-validator",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Simple React JS library to validate form fields",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
