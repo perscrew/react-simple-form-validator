@@ -35,7 +35,7 @@ const MyFunction = () => {
   const [name, setName] = useState('');
   
   const { isFieldInError, getErrorsInField, isFormValid } = useValidation({
-    fieldRules: {
+    fieldsRules: {
       email: { email: true },
       name: { required: true }
     },
